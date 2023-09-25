@@ -1,11 +1,13 @@
 {
   "dependencies": {
+    "homepage": "http://arooj-12.github.io/SmartBrain-frontend",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.20.2",
     "clarifai": "^2.9.1",
     "clarifai-nodejs-grpc": "^9.8.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "gh-pages": "^6.0.0",
     "knex": "^2.5.1",
     "module": "^1.2.5",
     "node": "^20.5.0",
@@ -18,7 +20,9 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
