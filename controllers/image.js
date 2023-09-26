@@ -7,7 +7,7 @@ config();
 
 
 const app = new Clarifai.App({
-  apiKey: process.env.API_KEY,
+  apiKey: "3da86409b444466b92bcf36948ccca4f",
 });
 
 const face_detect_model_obj = {
