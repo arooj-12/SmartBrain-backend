@@ -9,7 +9,10 @@
     "knex": "^2.5.1",
     "module": "^1.2.5",
     "node": "^20.5.0",
-    "pg": "^8.11.3"
+    "node-ts": "^6.0.1",
+    "pg": "^8.11.3",
+    "sqlite3": "^5.1.6",
+    "typescript": "^5.2.2"
   },
   "name": "smart-brain-api",
   "version": "1.0.0",
