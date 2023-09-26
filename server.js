@@ -2,23 +2,25 @@ const express = require('express');
 const bodyParser = require('body-parser'); 
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
-const knex = require('knex')
+const knex = require('knex');
+const { config } = require('dotenv');
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+config();
+
 const db = knex({
-  client: 'pg',
-  connection: {
-    host: '127.0.0.1',
-    port: 5432,
-    user: 'postgres',
-    password : 'test',
-    database : 'smart-brain'
-  }
-});
+    connectionString: process.env.DATABASE_URL,
+		ssl: { rejectUnauthorized: false },
+		host: process.env.DATABASE_LOCALHOST,
+		port: 5432,
+		user: process.env.DATABASE_USER,
+		password: process.env.DATABASE_PASSWORD,
+		database: process.env.DATABASE_NAME
+  });
 
 
 const app = express();
@@ -33,6 +35,6 @@ app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) }
 app.put('/image', (req, res) => { image.handleImage(req, res, db) })
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})
 
-app.listen(3001, ()=> {
-  console.log('app is running on port 3001');
+app.listen(process.env.PORT || 3001, ()=> {
+  console.log(`app is running on port ${process.env.PORT}`);
 })
