@@ -7,14 +7,14 @@ config();
 
 
 const app = new Clarifai.App({
-  apiKey: "3da86409b444466b92bcf36948ccca4f",
+  apiKey: 'process.env.API_CLARIFAI',
 });
 
 const face_detect_model_obj = {
-  id: process.env.MODEL_ID,
-    name: process.env.MODEL_NAME,
-    version: process.env.MODEL_VERSION,
-    type: process.env.MODEL_TYPE,
+  id: 'face-detection',
+  name: 'face-detection',
+  version: '6dc7e46bc9124c5c8824be4822abe105',
+  type: 'visual-detector',
 }
 
 displayFaceBox = (box) => {
@@ -41,7 +41,7 @@ const handleImage = (req, res, db) => {
     .catch(err => res.status(400).json('unable to get entries'))
   }
 
-  module.exports = {
-    handleImage,
-    handleApiCall
-  }
+  module.exports  = {
+    handleImage: handleImage,
+    handleApiCall: handleApiCall
+}
