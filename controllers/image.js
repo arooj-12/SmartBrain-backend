@@ -11,10 +11,14 @@ const app = new Clarifai.App({
 });
 
 const face_detect_model_obj = {
-  id: 'face-detection',
-  name: 'face-detection',
-  version: '6dc7e46bc9124c5c8824be4822abe105',
-  type: 'visual-detector',
+  // id: 'face-detection',
+  // name: 'face-detection',
+  // version: '6dc7e46bc9124c5c8824be4822abe105',
+  // type: 'visual-detector',
+    id: process.env.MODEL_ID,
+    name: process.env.MODEL_NAME,
+    version: process.env.MODEL_VERSION,
+    type: process.env.MODEL_TYPE,
 }
 
 displayFaceBox = (box) => {

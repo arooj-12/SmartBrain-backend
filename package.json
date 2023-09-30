@@ -18,6 +18,7 @@
   "name": "smart-brain-api",
   "version": "1.0.0",
   "main": "script.js",
+  "type": "commonjs",
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
